@@ -2,6 +2,12 @@
 
 namespace Fartemis {
 
+    Entity::~Entity() {
+        for ( auto comp = m_components.begin(); comp != m_components.end(); ++comp ) {
+            delete *comp;
+        };
+    };
+
     void Entity::Process() {
         for ( auto system = m_systems.begin(); system != m_systems.end(); ++system ) {
             (*system)( *this );

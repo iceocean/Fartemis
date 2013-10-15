@@ -8,6 +8,8 @@ namespace Fartemis {
 
     class Entity {
     public:
+                                    ~Entity();
+
         void                        Process();
 
         void                        RegisterComponent( Component* );
@@ -18,7 +20,6 @@ namespace Fartemis {
 
     private:
         std::vector< Component* >               m_components;
-
         std::vector< void ( * )( Entity& ) >    m_systems;
     };
 

@@ -7,6 +7,7 @@ public:
         Component( typeid( TransformComponent ) ),
         x( a_x ),
         y( a_y ) {};
+    ~TransformComponent() {};
 
     float x, y;
 };
@@ -17,6 +18,7 @@ public:
         Component( typeid( VelocityComponent ) ),
         x( a_x ),
         y( a_y ) {};
+    ~VelocityComponent() {};
 
     float x, y;
 };
@@ -25,6 +27,17 @@ void MovementSystem( Fartemis::Entity& );
 void DebugOutputSystem( Fartemis::Entity& );
 
 int main( int argc, char** argv ) {
+    /*
+    EXPEXTED OUTPUT:
+    =====
+    1, 1
+    2, 2
+    3, 3
+    4, 4
+    5, 5
+    =====
+    */
+
     Fartemis::World world;
 
     Fartemis::Entity& entity = world.RegisterEntity();
